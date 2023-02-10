@@ -4,6 +4,7 @@ const app = express();
 
 const userRoutes = require('./routes/user');
 
+// Connexion à la base de données MongoDB Atlas
 mongoose.connect('mongodb+srv://tom:tom123@cluster0.ggs1w0m.mongodb.net/?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
