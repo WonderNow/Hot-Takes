@@ -30,7 +30,7 @@ app.use(express.json());
 
 // Routeurs
 app.use('/api/auth', userRoutes);
-app.use('/api/sauce', sauceRoutes);
+app.use('/api/sauces', sauceRoutes);
 app.use('/images', express.static(path.join(__dirname, 'images'))),
 
 module.exports = app;
