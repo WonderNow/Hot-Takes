@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 
 const userRoutes = require('./routes/user');
-const sauceRoutes = require('.routes/sauce');
+const sauceRoutes = require('./routes/sauce');
 
 // Connexion à la base de données MongoDB Atlas
 mongoose.connect('mongodb+srv://tom:tom123@cluster0.ggs1w0m.mongodb.net/?retryWrites=true&w=majority',
