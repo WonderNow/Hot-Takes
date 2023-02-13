@@ -12,7 +12,7 @@ const sauceSchema = mongoose.Schema({
   likes: { type: Number, required: true },
   dislikes: { type: Number, required: true },
   usersLikes: { type: String, required: true },
-  userDisliked: { type: String, required: true },
+  usersDisliked: { type: String, required: true },
 });
 
 // Utilisation de la méthode model afin de transformer le schéma ci-dessus en un modèle utilisable par Mongoose
