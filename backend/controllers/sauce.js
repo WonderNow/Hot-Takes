@@ -28,7 +28,7 @@ exports.createSauce = (req, res, next) => {
 exports.getOneSauce = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id })
     .then(sauce => res.status(200).json(sauce))
-    .catch(error => res.status(404).json({ error }));
+    .catch(error => res.status(404).json({ error: error.name, description: error.message, message: 'Erreur lors de la récupération des données de la sauce' }));
 };
 
 // Modification d'une sauce spécifique
