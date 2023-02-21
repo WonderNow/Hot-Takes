@@ -7,8 +7,11 @@ const cors = require('cors');
 const userRoutes = require('./routes/user');
 const sauceRoutes = require('./routes/sauce');
 
+//Chargement des variables d'environnement
+require('dotenv').config();
+
 // Connexion à la base de données MongoDB Atlas
-mongoose.connect('mongodb+srv://tom:tom123@cluster0.ggs1w0m.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_CLUSTER}/?retryWrites=true&w=majority`,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
