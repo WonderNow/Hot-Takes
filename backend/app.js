@@ -32,7 +32,7 @@ app.use(express.json()); // Middleware permettant de parser les requêtes entran
 
 app.use(helmet()); // Middleware permettant de sécuriser les en-têtes HTTP
 
-
+// Routes
 app.use('/api/auth', userRoutes); // Pour toutes les routes commençant par /api/auth, on utilise le routeur défini dans user.js
 app.use('/api/sauces', sauceRoutes); // Pour toutes les routes commençant par /api/sauces, on utilise le routeur défini dans sauce.js
 app.use('/images', express.static(path.join(__dirname, 'images'))), // Pour toutes les routes commençant par /images, on utilise le routeur défini dans sauce.js
