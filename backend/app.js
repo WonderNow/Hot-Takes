@@ -1,12 +1,12 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
-const app = express();
-const cors = require('cors');
-const helmet = require('helmet');
+const express = require('express'); // Permet de créer un serveur Express
+const mongoose = require('mongoose'); // Permet de se connecter à la base de données MongoDB
+const path = require('path'); // Permet de gérer les chemins de fichiers
+const app = express(); // Crée une instance d'application Express
+const cors = require('cors'); // Permet de gérer les erreurs CORS
+const helmet = require('helmet'); // Permet de sécuriser les en-têtes HTTP
 
-const userRoutes = require('./routes/user');
-const sauceRoutes = require('./routes/sauce');
+const userRoutes = require('./routes/user'); // Importe le routeur pour les utilisateurs
+const sauceRoutes = require('./routes/sauce'); // Importe le routeur pour les sauces
 
 //Chargement des variables d'environnement
 require('dotenv').config();
@@ -26,14 +26,11 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middleware permettant de gérer les erreurs CORS
-app.use(cors());
+app.use(cors()); // Middleware permettant de gérer les erreurs CORS
 
-// Middleware permettant de parser les requêtes entrantes
-app.use(express.json());
+app.use(express.json()); // Middleware permettant de parser les requêtes entrantes
 
-// Middleware permettant de sécuriser les en-têtes HTTP
-app.use(helmet());
+app.use(helmet()); // Middleware permettant de sécuriser les en-têtes HTTP
 
 
 app.use('/api/auth', userRoutes); // Pour toutes les routes commençant par /api/auth, on utilise le routeur défini dans user.js
