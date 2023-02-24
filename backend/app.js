@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
 const cors = require('cors');
+const helmet = require('helmet');
 
 const userRoutes = require('./routes/user');
 const sauceRoutes = require('./routes/sauce');
@@ -25,15 +26,19 @@ app.use((req, res, next) => {
   next();
 });
 
-// Appel du package CORS
+// Middleware permettant de gérer les erreurs CORS
 app.use(cors());
 
-// Extraction du corps JSON de la requête
+// Middleware permettant de parser les requêtes entrantes
 app.use(express.json());
 
-// Routeurs
-app.use('/api/auth', userRoutes);
-app.use('/api/sauces', sauceRoutes);
-app.use('/images', express.static(path.join(__dirname, 'images'))),
+// Middleware permettant de sécuriser les en-têtes HTTP
+app.use(helmet());
 
+
+app.use('/api/auth', userRoutes); // Pour toutes les routes commençant par /api/auth, on utilise le routeur défini dans user.js
+app.use('/api/sauces', sauceRoutes); // Pour toutes les routes commençant par /api/sauces, on utilise le routeur défini dans sauce.js
+app.use('/images', express.static(path.join(__dirname, 'images'))), // Pour toutes les routes commençant par /images, on utilise le routeur défini dans sauce.js
+
+// Exporte l'application Express pour qu'elle puisse être utilisée dans d'autres fichiers
 module.exports = app;
