@@ -26,11 +26,16 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors()); // Middleware permettant de gérer les erreurs CORS
+// Middleware permettant de gérer les erreurs CORS
+app.use(cors());
 
-app.use(express.json()); // Middleware permettant de parser les requêtes entrantes
+// Middleware permettant de parser les requêtes entrantes au format JSON
+app.use(express.json());
 
-app.use(helmet()); // Middleware permettant de sécuriser les en-têtes HTTP
+// Middleware permettant de sécuriser les en-têtes HTTP
+app.use(helmet({
+  crossOriginResourcePolicy: false,
+}));
 
 // Routes
 app.use('/api/auth', userRoutes); // Pour toutes les routes commençant par /api/auth, on utilise le routeur défini dans user.js
