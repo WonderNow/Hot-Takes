@@ -48,7 +48,19 @@ exports.modifySauce = (req, res, next) => {
     } : { ...req.body };
   
     delete sauceObject._userId;
+
+    // Supprime l'image précédente du serveur
     Sauce.findOne({_id: req.params.id})
+    .then(sauce => {
+        if (sauce.imageUrl !== undefined) {
+            const filename = sauce.imageUrl.split('/images/')[1];
+            fs.unlink(`images/${filename}`, () => {});
+        }
+    })
+    .catch(error => console.log(error));
+
+    // Modifie la sauce
+    Sauce.findOne({_id: req.params.id}) 
         .then((sauce) => {
             if (sauce.userId != req.auth.userId) {
                 res.status(401).json({ message : 'Non autorisé'});
