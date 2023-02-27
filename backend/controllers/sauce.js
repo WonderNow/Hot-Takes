@@ -1,6 +1,5 @@
 const Sauce = require('../models/Sauce');
 const fs = require('fs'); // File System, package de Node.js permettant de gérer les fichiers
-const path = require('path'); // Package de Node.js permettant de gérer les chemins de fichiers et de répertoires
 
 // Récupération de toutes les sauces
 exports.getAllSauces = (req, res, next) => {
@@ -8,14 +7,6 @@ exports.getAllSauces = (req, res, next) => {
     .then(sauce => res.status(200).json(sauce))
     .catch(error => res.status(400).json({ error: error.name, description: error.message, message: 'Erreur lors de la récupération des sauces' }));
 };
-
-// Vérifie si le dossier "images" existe déjà
-const imagesDirectory = path.join(__dirname, '../images');
-if (!fs.existsSync(imagesDirectory)) {
-  // Crée le dossier "images"
-  fs.mkdirSync(imagesDirectory);
-  console.log('Le dossier "images" a été créé avec succès !');
-}
 
 // Création d'une sauce
 exports.createSauce = (req, res, next) => {

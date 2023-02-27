@@ -1,5 +1,7 @@
 const http = require('http'); // Package permettant de créer un serveur HTTP
 const app = require('./app'); // Importe l'application Express
+const fs = require('fs'); // File System, package de Node.js permettant de gérer les fichiers
+const path = require('path'); // Package de Node.js permettant de gérer les chemins de fichiers et de répertoires
 
 // Définition d'un port valide
 const normalizePort = val => {
@@ -49,3 +51,11 @@ server.on('listening', () => {
 
 // Ecoute du serveur sur le port 3000
 server.listen(port);
+
+// Vérifie si le dossier "images" existe déjà
+const imagesDirectory = path.join(__dirname, 'images');
+if (!fs.existsSync(imagesDirectory)) {
+  // Crée le dossier "images"
+  fs.mkdirSync(imagesDirectory);
+  console.log('Le dossier "images" a été créé avec succès !');
+}
