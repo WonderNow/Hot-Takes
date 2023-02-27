@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); // Package permettant de gérer la base de données MongoDB
 
 // Utilisation de la méthode Schema de Mongoose afin de créer un schéma de données pour la base de données
 const sauceSchema = mongoose.Schema({
@@ -16,5 +16,4 @@ const sauceSchema = mongoose.Schema({
   usersDisliked: { type: [String], required: false }
 });
 
-// Utilisation de la méthode model afin de transformer le schéma ci-dessus en un modèle utilisable par Mongoose
-module.exports = mongoose.model('Sauce', sauceSchema);
+module.exports = mongoose.model('Sauce', sauceSchema); // Export du schéma sous forme de model grâce à la fonction 'model' de mongoose

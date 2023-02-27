@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken'); // Package permettant la création de tokens d'authentification
 
 // Vérification de la validité du token
 module.exports = (req, res, next) => {

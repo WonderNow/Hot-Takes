@@ -1,9 +1,9 @@
-const express = require('express'); // Permet de créer un serveur Express
-const mongoose = require('mongoose'); // Permet de se connecter à la base de données MongoDB
-const path = require('path'); // Permet de gérer les chemins de fichiers
+const express = require('express'); // Package permettant de créer un serveur Express et de gérer les requêtes et les réponses HTTP
+const mongoose = require('mongoose'); // Package permettant de se connecter à la base de données MongoDB
+const path = require('path'); // Package permettant de gérer les chemins de fichiers
 const app = express(); // Crée une instance d'application Express
-const cors = require('cors'); // Permet de gérer les erreurs CORS
-const helmet = require('helmet'); // Permet de sécuriser les en-têtes HTTP
+const cors = require('cors'); // Package permettant de gérer les erreurs CORS
+const helmet = require('helmet'); // Package permettant de sécuriser les en-têtes HTTP
 
 const userRoutes = require('./routes/user'); // Importe le routeur pour les utilisateurs
 const sauceRoutes = require('./routes/sauce'); // Importe le routeur pour les sauces

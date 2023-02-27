@@ -1,6 +1,6 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const bcrypt = require('bcrypt'); // Package permettant le hashage des mots de passe
+const jwt = require('jsonwebtoken'); // Package permettant la création de tokens d'authentification
+const User = require('../models/User'); // Importation du modèle d'utilisateur
 
 // Création des utilisateurs dans la base de donnée
 exports.signup = (req, res, next) => {

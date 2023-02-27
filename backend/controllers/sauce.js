@@ -1,6 +1,6 @@
 const Sauce = require('../models/Sauce');
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs'); // File System, package de Node.js permettant de gérer les fichiers
+const path = require('path'); // Package de Node.js permettant de gérer les chemins de fichiers et de répertoires
 
 // Récupération de toutes les sauces
 exports.getAllSauces = (req, res, next) => {
