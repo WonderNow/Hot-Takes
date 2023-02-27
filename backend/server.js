@@ -13,7 +13,7 @@ const normalizePort = val => {
   }
   return false;
 };
-const port = normalizePort(process.env.PORT || '3000'); // Si le port n'est pas défini, on utilise le port 3000
+const port = normalizePort(process.env.PORT || '3000'); // Si le port n'est pas défini, on utilise le port 3000
 app.set('port', port);
 
 // Recherche des différentes erreurs
