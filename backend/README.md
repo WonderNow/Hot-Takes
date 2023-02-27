@@ -9,9 +9,11 @@
 ## Démarrage du backend
 
 ► Pour vous connecter à votre base de données MongoDB, créez un fichier `.env` dans le dossier **backend**, puis entrez les informations nécéssaires comme ceci :
-`MONGO_USER='VotreIdentifiant'
-MONGO_PASSWORD='VotreMotDePasse'
-MONGO_CLUSTER='VotreCluster'`
+`MONGO_USER='VotreIdentifiant'`
+
+`MONGO_PASSWORD='VotreMotDePasse'`
+
+`MONGO_CLUSTER='VotreCluster'`
 
 ► Dans le terminal du dossier **backend**, exécutez la commande `nodemon server`.
 
